@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://wwww.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link th:href="@{/css/patientstable.css}" href="/css/patientstable.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container-fluid text-center patientsTable">
+    <div class="tableTitle"><h2>PATIENTS TABLE</h2></div>
+    <div class="row" style="justify-content:center;">
+        <div class="col-12 col-lg-10 offset-lg-1">
+    <div class="description"><p>Here are your current patients on the database. You can delete a patient, or prescribe him a medication by prescribing his table. You can also add a new patient.
+        In case of any mistake according to the data of the patient, you can press the button Update.
+        Press the export button for the medication and send it to your patient with an EMAIL.</p>
+        </div>
+            </div>
+        <div class="newPatient" style="padding:20px;"><a class="h2" href= "/newPatient">Add A New Patient +</a></div>
+        </div>
+    <div style="overflow-x:auto;">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>AMKA</th>
+                <th>Id Card</th>
+                <th>Father's Name</th>
+                <th>Mother's Name</th>
+                <th>Phone</th>
+                <th>E-mail</th>
+                <th>City</th>
+                <th>Update</th>
+                <th>Prescribe</th>
+                <th>Delete</th>
+                <th>Export</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="patient : ${patientList}">
+                <tr>
+                    <td>[[${patient.id}]]</td>
+                    <td>[[${patient.firstName}]]</td>
+                    <td>[[${patient.lastName}]]</td>
+                    <td>[[${patient.amka}]]</td>
+                    <td>[[${patient.idCard}]]</td>
+                    <td>[[${patient.fathersName}]]</td>
+                    <td>[[${patient.mothersName}]]</td>
+                    <td>[[${patient.phone}]]</td>
+                    <td>[[${patient.email}]]</td>
+                    <td>[[${patient.city}]]</td>
+
+                    <td><a th:href="@{/editPatient/{id}(id = ${patient.id})}">Update</a></td>
+                    <td><a th:href="@{/prescribeDrugs/{id}(id = ${patient.id})}">Prescribe</a></td>
+                    <td><a th:href="@{/delete/{id}(id = ${patient.id})}">Delete</a></td>
+                    <td><a th:href="@{/export/patient/{id}(id = ${patient.id})}">Export</a></td>
+
+
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
