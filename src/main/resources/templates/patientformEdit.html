@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link th:href="@{/css/webform.css}" href="/css/webform.css" rel="stylesheet" type="text/css"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Update Patient</title>
+</head>
+
+<script type="text/javascript" th:src="@{/js/webform.js}"></script>
+
+<form th:action="@{/prescribeDrugs/patient/{id}(id = ${patient.id})}" method="post" th:object="${patient}">
+    <div class="container prescription-form">
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <form>
+                    <h1>Electronic Prescription Form</h1>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label>
+                                <span>Patient Name</span><input type="text" th:value="${patient.firstName}"
+                                                                th:name="firstName" disabled/>
+                            </label>
+                        </div>
+
+
+                        <div class="col-lg-6 col-12">
+                            <label>
+                                <span>Patient Email</span><input id="email" type="text" th:value="${patient.email}"
+                                                                 th:name="email"/>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label>
+                                <span>Patient Surname</span><input id="surname" type="text"
+                                                                   th:value="${patient.lastName}" th:name="surname"
+                                                                   disabled/>
+                            </label>
+                        </div>
+
+
+                        <div class="col-lg-6 col-12">
+                            <label>
+                                <span>Patient Phone</span><input id="phone" type="text" th:value="${patient.phone}"
+                                                                 th:name="phone"/>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label>
+                                <span>Patient Symptoms</span><input id="symptoms" type="text" th:name="symptoms"
+                                                                    required/>
+                            </label>
+                            <span class="error_message">This field is required</span>
+                        </div>
+
+                        <div class="col-lg-6 col-12" th:object="${drugs}">
+                            <label>
+                                <span>Drug*</span>
+                                <select class="druglist" required name="drugs">
+                                    <option th:each="drug : ${drugs}" th:value="${drug.id}"
+                                            th:text="${drug.drugName}">
+                                </select>
+                            </label>
+                            <span class="error_message">This field is required</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <label>
+                                <span>AMKA</span><input id="amka" type="text" th:value="${patient.amka}" th:name="amka"
+                                                        disabled/>
+                            </label>
+                        </div>
+
+
+                        <div class="col-lg-6 col-12">
+                            <label>
+                                <span>Patient ID</span><input id="patient_id" type="text" th:value="${patient.idCard}"
+                                                              th:name="patient_id" disabled/>
+                            </label>
+                            <span class="error_message">This field is required</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <div class="message pharmacy">
+                                <label class="miniTextfield">
+                                    <span>Pharmacy to deliver</span><textarea id="pharmacy" th:name="pharmacy" required></textarea>
+                                </label>
+                                    <span class="error_message">This field is required</span>
+                            </div>
+
+                        </div>
+
+
+                            <div class="col-lg-6 col-12">
+                                <div class="message signature">
+                                <label class="miniTextfield">
+                                    <span>Doctor Signature</span><textarea id="doctorSignature" th:name="doctorsName" required></textarea>
+                                </label>
+                                    <span class="error_message">This field is required</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12">
+                            <label>
+                                <span>City</span><input id="city" type="text" th:value="${patient.city}" th:name="city"
+                            />
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="message">
+                        <div class="col-lg-12 col-12">
+                            <label class="message_btn_wrapper">
+                                <span>Message</span><textarea id="feedback" th:name="message"></textarea>
+                                <input type="submit" value="Submit Form"/>
+                                <div class="requiredMessage">Fields with * are mandatory</div>
+                            </label>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</form>
