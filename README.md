@@ -1,4 +1,4 @@
-This is a simple project which is based on spring-boot 2.5.6 and uses MySql database, JPA, Thymeleaf template engine, Bootstrap ,Javascript
+#This is a simple project which is based on spring-boot 2.5.6 and uses MySql database, JPA, Thymeleaf template engine, Bootstrap ,Javascript
 
 
 ![Στιγμιότυπο οθόνης (28)](https://user-images.githubusercontent.com/116730698/230116306-8ec6537a-efac-4f2d-90e4-34983b307a5f.png)
