@@ -1,4 +1,4 @@
-#This is a simple project which is based on spring-boot 2.5.6 and uses 
+# This is a simple project which is based on spring-boot 2.5.6 and uses 
 - Maven 
 - MySql database 
 - JPA
