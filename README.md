@@ -1,9 +1,9 @@
 This is a simple project which is based on spring-boot 2.5.6 and uses 
 -Maven 
--MySql database, 
--JPA,
--Thymeleaf template engine,
--Bootstrap ,
+-MySql database 
+-JPA
+-Thymeleaf template engine
+-Bootstrap 
 -Javascript
 
 
